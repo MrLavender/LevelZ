@@ -36,8 +36,9 @@ public class EnchantmentHelperMixin {
 
     @Inject(method = "onTargetDamaged", at = @At("HEAD"), cancellable = true)
     private static void onTargetDamagedMixin(LivingEntity user, Entity target, CallbackInfo info) {
+        if (!(user instanceof PlayerEntity)) return;
         ItemStack itemStack = user.getStackInHand(user.getActiveHand());
-        if (itemStack.getItem() instanceof ToolItem && user instanceof PlayerEntity) {
+        if (itemStack.getItem() instanceof ToolItem) {
             PlayerEntity playerEntity = (PlayerEntity) user;
             ArrayList<Object> levelList = LevelLists.customItemList;
             if (!PlayerStatsManager.playerLevelisHighEnough(playerEntity, levelList, Registry.ITEM.getId(itemStack.getItem()).toString(), true))
@@ -61,8 +62,9 @@ public class EnchantmentHelperMixin {
 
     @Inject(method = "onUserDamaged", at = @At("HEAD"), cancellable = true)
     private static void onUserDamagedMixin(LivingEntity user, Entity attacker, CallbackInfo info) {
+        if (!(user instanceof PlayerEntity)) return;
         ItemStack itemStack = user.getStackInHand(user.getActiveHand());
-        if (itemStack.getItem() instanceof ToolItem && user instanceof PlayerEntity) {
+        if (itemStack.getItem() instanceof ToolItem) {
             PlayerEntity playerEntity = (PlayerEntity) user;
             ArrayList<Object> levelList = LevelLists.customItemList;
             if (!PlayerStatsManager.playerLevelisHighEnough(playerEntity, levelList, Registry.ITEM.getId(itemStack.getItem()).toString(), true))
