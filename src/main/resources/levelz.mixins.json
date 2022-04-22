@@ -10,7 +10,6 @@
     "player.PlayerManagerMixin",
     "player.PlayerInventoryMixin",
     "player.HungerManagerMixin",
-    "player.CraftingScreenHandlerMixin",
     "entity.LivingEntityMixin",
     "entity.SheepEntityMixin",
     "entity.SnowGolemEntityMixin",
@@ -79,7 +78,6 @@
     "misc.PotionSlotMixin",
     "misc.PiglinBrainMixin",
     "misc.SmithingScreenHandlerMixin",
-    "misc.AbstractFurnaceScreenHandlerMixin",
     "compat.SurvivalTrinketSlotMixin",
     "compat.TrinketItemMixin"
   ],
